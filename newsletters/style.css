@@ -1,0 +1,14 @@
+.newsletterHeader {
+    color: yellow;
+    font-family: main-font;
+    text-align: center;
+    margin: auto;
+    margin-top: 3rem;
+}
+
+.newsletterSubheader {
+    color: white;
+    font-family: main-font;
+    text-align: center;
+    margin: auto;
+}
