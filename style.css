@@ -1,4 +1,6 @@
 html {
+    cursor: url("images/arrow.png") 11 11, auto;
+}
 
 body {
     margin-left: 0;
