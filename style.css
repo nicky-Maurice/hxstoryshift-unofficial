@@ -112,6 +112,13 @@ audio {
     image-rendering: pixelated;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
 .caption {
     color: gray;
     font-size: 0.875rem;
