@@ -55,6 +55,8 @@ p {
     font-family: main-font;
     margin: auto;
     line-height: 1.5;
+
+     padding-left: 1rem;
 }
 
 strong {
