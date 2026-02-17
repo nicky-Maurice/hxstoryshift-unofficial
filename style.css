@@ -128,26 +128,25 @@ img {
     margin: 1rem 0;
 }
 
+/* General images in container */
 .image-container img {
-    max-width: 100%;
-    height: auto;
-    display: inline-block;
+    display: inline-block; /* allows centering */
+    max-width: 100%;       /* never overflow container */
+    height: auto;          /* maintain aspect ratio */
 }
 
+/* Pixelated images (all) */
 .pixelated {
     image-rendering: pixelated;
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    display: inline-block;
 }
 
+/* Large desktop pixelated GIFs */
 .pixelated.desktop {
-    image-rendering: pixelated;
-    width: 600px;       /* desired desktop width */
-    max-width: 100%;    /* ensures it still shrinks on mobile */
-    height: auto;
-    display: inline-block;
+    width: 600px;        /* fixed desktop width */
+    max-width: 100%;     /* shrink on mobile */
+    height: auto;        /* maintain aspect ratio */
+    display: inline-block; /* keeps centering from container */
+    image-rendering: pixelated; /* blocky pixels */
 }
 
 .caption {
