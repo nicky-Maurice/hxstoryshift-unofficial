@@ -135,16 +135,28 @@ img {
     display: inline-block;
 }
 
-/* Pixelated GIFs keep blocky look */
+/* Pixelated GIFs default behavior */
 .pixelated {
     image-rendering: pixelated;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Large GIFs that have natural width for desktop */
-.pixelated.desktop {
-    image-rendering: pixelated;
-    width: 760px;        /* let the image use its natural width */
-    height: auto;
+/* Large GIFs for desktop at native size */
+@media (min-width: 800px) { 
+    .pixelated.desktop {
+        width: 760px;      /* native width for desktop */
+        height: auto;
+    }
+}
+
+/* Mobile-friendly scaling */
+@media (max-width: 799px) {
+    .pixelated.desktop {
+        width: 100%;       /* scale to fit container */
+        height: auto;
+    }
 }
 
 .caption {
