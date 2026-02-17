@@ -136,9 +136,10 @@ img {
 
 .pixelated {
     image-rendering: pixelated;
-    width: 600px;
     max-width: 100%;
+    width: auto;
     height: auto;
+    display: inline-block;
 }
 
 .caption {
