@@ -122,40 +122,43 @@ img {
 
 }
 
+/* === Image Container === */
 .image-container {
-    text-align: center;
-    width: 100%;
-    margin: 1rem 0;
+    text-align: center;   /* center all images */
+    width: 100%;          /* fill container */
+    margin: 1rem 0;       /* optional vertical spacing */
 }
 
-/* All GIFs scale down if too wide for screen */
+/* All images scale down if too wide for container */
 .image-container img {
-    max-width: 100%;   /* shrink to fit container */
-    height: auto;      /* maintain aspect ratio */
-    display: inline-block;
+    max-width: 100%;      /* never overflow container */
+    height: auto;         /* maintain aspect ratio */
+    display: inline-block; /* allows text-align centering */
 }
 
-/* Pixelated GIFs default behavior */
+/* === Pixelated GIFs === */
 .pixelated {
-    image-rendering: pixelated;
+    image-rendering: pixelated; /* keep blocky look */
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Large GIFs for desktop at native size */
-@media (min-width: 800px) { 
-    .pixelated.desktop {
-        width: 760px;  /* use native width */
-        height: auto;
-        max-width: none; /* allow full size on desktop */
-    }
+/* === Large GIFs with desktop-native width === */
+.pixelated.desktop {
+    image-rendering: pixelated;
+    width: 760px;          /* natural width for desktop */
+    max-width: none;       /* prevent shrinking by container */
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Mobile-friendly scaling */
+/* === Mobile scaling for desktop GIFs === */
 @media (max-width: 799px) {
     .pixelated.desktop {
-        width: 100%;    /* scale down to fit container */
+        width: 100%;       /* shrink to fit screen */
         height: auto;
     }
 }
