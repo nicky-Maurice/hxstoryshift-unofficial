@@ -148,7 +148,7 @@ img {
 .pixelated.desktop {
     image-rendering: pixelated;
     width: 760px;          /* natural width for desktop */
-    max-width: none;       /* prevent shrinking by container */
+    max-width: 100vw;       /* prevent shrinking by container */
     height: auto;
     display: block;
     margin-left: auto;
