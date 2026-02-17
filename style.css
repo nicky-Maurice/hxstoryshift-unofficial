@@ -26,7 +26,7 @@ body {
 
 @font-face {
     font-family: sans-font;
-    src: url(fonts/fonts/Comic Sans UT.woff) format("woff");
+    src: url(fonts/Comic Sans UT.woff) format("woff");
 }
 
 article, footer {
