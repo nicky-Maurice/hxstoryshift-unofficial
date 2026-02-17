@@ -134,6 +134,12 @@ img {
     display: inline-block;
 }
 
+.pixelated {
+    image-rendering: pixelated;
+    width: auto;
+    max-width: 100%;
+}
+
 .caption {
     color: gray;
     font-size: 0.875rem;
