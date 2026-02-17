@@ -122,6 +122,18 @@ img {
 
 }
 
+.image-container {
+    text-align: center;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
 .caption {
     color: gray;
     font-size: 0.875rem;
