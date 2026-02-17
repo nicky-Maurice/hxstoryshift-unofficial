@@ -143,7 +143,7 @@ img {
 /* Large GIFs that have natural width for desktop */
 .pixelated.desktop {
     image-rendering: pixelated;
-    width: auto;        /* let the image use its natural width */
+    width: 760px;        /* let the image use its natural width */
     max-width: 100%;    /* shrink on smaller screens */
     height: auto;
 }
