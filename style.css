@@ -142,6 +142,14 @@ img {
     display: inline-block;
 }
 
+.pixelated.desktop {
+    image-rendering: pixelated;
+    width: 600px;       /* desired desktop width */
+    max-width: 100%;    /* ensures it still shrinks on mobile */
+    height: auto;
+    display: inline-block;
+}
+
 .caption {
     color: gray;
     font-size: 0.875rem;
