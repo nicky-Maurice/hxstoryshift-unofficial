@@ -147,12 +147,13 @@ img {
 /* === Large GIFs with desktop-native width === */
 .pixelated.desktop {
     image-rendering: pixelated;
-    width: 760px;          /* natural width for desktop */
-    max-width: 100vw;       /* prevent shrinking by container */
+    width: 760px;
+    max-width: 100vw;
     height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* === Mobile scaling for desktop GIFs === */
