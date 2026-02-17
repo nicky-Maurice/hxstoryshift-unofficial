@@ -146,15 +146,16 @@ img {
 /* Large GIFs for desktop at native size */
 @media (min-width: 800px) { 
     .pixelated.desktop {
-        width: 760px;      /* native width for desktop */
+        width: 760px;  /* use native width */
         height: auto;
+        max-width: none; /* allow full size on desktop */
     }
 }
 
 /* Mobile-friendly scaling */
 @media (max-width: 799px) {
     .pixelated.desktop {
-        width: 100%;       /* scale to fit container */
+        width: 100%;    /* scale down to fit container */
         height: auto;
     }
 }
