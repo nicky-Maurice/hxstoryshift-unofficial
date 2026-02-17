@@ -128,25 +128,24 @@ img {
     margin: 1rem 0;
 }
 
-/* General images in container */
+/* All GIFs scale down if too wide for screen */
 .image-container img {
-    display: inline-block; /* allows centering */
-    max-width: 100%;       /* never overflow container */
-    height: auto;          /* maintain aspect ratio */
+    max-width: 100%;   /* shrink to fit container */
+    height: auto;      /* maintain aspect ratio */
+    display: inline-block;
 }
 
-/* Pixelated images (all) */
+/* Pixelated GIFs keep blocky look */
 .pixelated {
     image-rendering: pixelated;
 }
 
-/* Large desktop pixelated GIFs */
+/* Large GIFs that have natural width for desktop */
 .pixelated.desktop {
-    width: 600px;        /* fixed desktop width */
-    max-width: 100%;     /* shrink on mobile */
-    height: auto;        /* maintain aspect ratio */
-    display: inline-block; /* keeps centering from container */
-    image-rendering: pixelated; /* blocky pixels */
+    image-rendering: pixelated;
+    width: auto;        /* let the image use its natural width */
+    max-width: 100%;    /* shrink on smaller screens */
+    height: auto;
 }
 
 .caption {
