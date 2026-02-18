@@ -64,10 +64,9 @@ p {
     color: white;
     font-family: main-font;
     margin: auto;
-    font-size: clamp(16px, 2.5vw, 24px);
+    font-size: clamp(8px, 2.5vw, 12px);
     line-height: 1.5;
 
-     padding-left: 1rem;
 }
 
 strong {
