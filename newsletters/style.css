@@ -25,3 +25,9 @@
     margin: auto;
 
 }
+
+.font1 { font-family: bold-font, sans-serif; }
+.font2 { font-family: main-font, sans-serif; }
+
+.pink { color: FF00FF; }
+.verm { color: FF4711; }
