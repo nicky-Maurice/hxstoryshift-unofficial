@@ -159,39 +159,43 @@
             </div>
         </article>
     <script>
-        const today = new Date();
-        const valentines2026 = new Date(2026, 1, 14); // Feb 14, 2026
+document.addEventListener("DOMContentLoaded", function() {
+    const today = new Date();
+    const valentinesCutoff = new Date(2026, 1, 15); // Feb 15, 2026
 
-        if (today <= valentines2026) {
-            // Show "You're Early!" page
-            document.body.innerHTML = "";
-            document.body.style.backgroundColor = "black";
-            document.body.style.height = "100vh";
-            document.body.style.display = "flex";
-            document.body.style.justifyContent = "center";
-            document.body.style.alignItems = "center";
+    // Only use year/month/day to ignore hours
+    const todayDateOnly = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
-            const message = document.createElement("div");
-            message.textContent = "* You're Early!";
-            message.style.color = "#FFFFFF";
-            message.style.fontFamily = "bold-font, sans-serif"; // Uses your CSS font
-            message.style.fontSize = "4rem";
-            message.style.textAlign = "center";
+    if (todayDateOnly < valentinesCutoff) {
+        // Show "You're Early!" page
+        document.body.innerHTML = "";
+        document.body.style.backgroundColor = "black";
+        document.body.style.height = "100vh";
+        document.body.style.display = "flex";
+        document.body.style.justifyContent = "center";
+        document.body.style.alignItems = "center";
 
-            document.body.appendChild(message);
-        } else {
-            // Show days since last Valentine's
-            const year = today.getFullYear();
-            let valentines = new Date(year, 1, 14);
-            if (today < valentines) {
-                valentines = new Date(year - 1, 1, 14);
-            }
-            const diffTime = today - valentines;
-            const diffDays = Math.floor(diffTime / (1000*60*60*24));
+        const message = document.createElement("div");
+        message.textContent = "* You're Early!";
+        message.style.color = "#FFFFFF";
+        message.style.fontFamily = "bold-font, sans-serif"; // your CSS font
+        message.style.fontSize = "clamp(2rem, 8vw, 4rem)";
+        message.style.textAlign = "center";
 
-            const daysSpan = document.getElementById("daysSinceValentine");
-            if (daysSpan) daysSpan.textContent = diffDays;
-        }
-    </script>
+        document.body.appendChild(message);
+    } else {
+        // Show days since last Valentine's
+        const year = today.getFullYear();
+        let valentines = new Date(year, 1, 14); // Feb 14
+        if (today < valentines) valentines = new Date(year - 1, 1, 14);
+
+        const diffTime = today - valentines;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+        const daysSpan = document.getElementById("daysSinceValentine");
+        if (daysSpan) daysSpan.textContent = diffDays;
+    }
+});
+</script>
     </body>
 </html>
