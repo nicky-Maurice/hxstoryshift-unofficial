@@ -67,7 +67,7 @@ p {
     font-size: clamp(16px, 2.5vw, 24px);
     line-height: 1.5;
 
-     padding-left: 2rem;
+     padding-left: 1rem;
 }
 
 strong {
