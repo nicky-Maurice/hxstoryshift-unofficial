@@ -171,24 +171,17 @@ img {
     text-align: center;
 }
 
+.button-wrapper {
+    text-align: center;
+}
+
 .button {
-    position: relative;
-    left: 25%;
-    right: 25%;
-    transform: translateX(-25%);
-    transform: translateX(+25%);
-    -webkit-transform: translateX(-25%);
-    -webkit-transform: translateX(+25%);
-
-
     display: inline-block;
-
     border: 2px solid yellow;
     padding: 10px;
-
     color: yellow;
     font-size: 18px;
-    text-align: center;
+    margin: 0 5px; /* optional spacing */
 }
 
 footer {
