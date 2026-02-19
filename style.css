@@ -171,12 +171,11 @@ img {
     text-align: center;
 }
 
-.button-container {
-    text-align: center;
-}
-
 .button {
     position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
 
     display: inline-block;
 
@@ -187,7 +186,6 @@ img {
     font-size: 18px;
     text-align: center;
 }
-
 
 footer {
     font-size: 0.9rem;
