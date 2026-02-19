@@ -181,7 +181,7 @@ img {
     padding: 10px;
     color: yellow;
     font-size: 18px;
-    margin: 1px; /* optional spacing */
+    margin: 0 10px; /* optional spacing */
 }
 
 footer {
