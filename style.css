@@ -180,7 +180,7 @@ img {
     display: inline-block;
 
     border: 2px solid yellow;
-    padding-left: 0.5rem;
+    padding: 10px;
 
     color: yellow;
     font-size: 18px;
