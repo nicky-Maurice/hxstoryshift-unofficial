@@ -174,8 +174,8 @@ img {
 .button {
     position: relative;
     left: 25%;
-    transform: translateX(-25%);
-    -webkit-transform: translateX(-25%);
+    right: 25%;
+
 
     display: inline-block;
 
