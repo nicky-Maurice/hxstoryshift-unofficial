@@ -179,13 +179,16 @@ img {
 }
 
 .button {
+    
     font-family: main-font;
     display: flex;
+    flex: 0 0 auto;
+    white-space: nowrap;
     border: 2px solid yellow;
     padding: 10px;
     color: yellow;
     font-size: 18px;
-    margin: 0 10px; /* optional spacing */
+    margin: 0 10px;
 }
 
 @media (max-width: 600px) {
