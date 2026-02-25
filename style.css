@@ -172,11 +172,14 @@ img {
 }
 
 .button-wrapper {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .button {
-    font-family: bold-font;
+    font-family: main-font;
     display: inline-block;
     border: 2px solid yellow;
     padding: 10px;
