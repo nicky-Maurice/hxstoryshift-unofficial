@@ -267,7 +267,7 @@ selectedCards.forEach(card => {
 
     let element = document.createElement("img");
     element.src = card.src;
-    element.classList.add("pixelated", "desktop");
+    element.classList.add("image");
     element.style.display = "block";
     element.style.marginBottom = "100px";
 
@@ -283,7 +283,7 @@ selectedCards.forEach(card => {
 
         // Create the clickable link overlay
         const link = document.createElement("a");
-        link.href = "spooky.html";
+        link.href = "spooky";
         link.textContent = "Link";
         link.style.position = "absolute";
         link.style.top = "50%";       // vertically center
