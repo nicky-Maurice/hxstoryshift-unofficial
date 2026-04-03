@@ -163,6 +163,10 @@
                          <br><br><br><br><br><br>
                          Whoops.
                          <br><br><br><br><br><br>
+                         W-Well, for the Orthodox, it'll be <span id="daysTillValentine" days UNTIL Valentine's!!></span>
+                         <br><br><br>
+                         That's... Not much better, is it.
+                         <br><br><br>
                          Uh, here, have 3 cards we got on sale the day after.
                          <br><br><br>
                 </p>
@@ -201,16 +205,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
         document.body.appendChild(message);
     } else {
-        // Show days since last Valentine's
+        // Show days since last Gregorian Valentine's
         const year = today.getFullYear();
-        let valentines = new Date(year, 1, 14); // Feb 14
-        if (today < valentines) valentines = new Date(year - 1, 1, 14);
+        let gvalentines = new Date(year, 1, 14); // Feb 14
+        if (today < gvalentines) gvalentines = new Date(year - 1, 1, 14);
 
-        const diffTime = today - valentines;
-        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        const gdiffTime = today - gvalentines;
+        const gdiffDays = Math.floor(gdiffTime / (1000 * 60 * 60 * 24));
 
-        const daysSpan = document.getElementById("daysSinceValentine");
-        if (daysSpan) daysSpan.textContent = diffDays;
+        // Show days till next Orthodox Valentine's
+        let ovalentines = new Date(year, 6, 6); // July 6
+        if (today > ovalentines) ovalentines = new Date(year + 1, 6, 6);
+
+        const odiffTime = ovalentines - today;
+        const odiffDays = Math.ceil(odiffTime / (1000 * 60 * 60 * 24));
+
+        // Update HTML
+        const dayssinceSpan = document.getElementById("daysSinceValentine");
+        const daystillSpan = document.getElementById("daysTillValentine");
+
+        if (dayssinceSpan) dayssinceSpan.textContent = gdiffDays;
+        if (daystillSpan) daystillSpan.textContent = odiffDays;
 
         const cardPool = [
     { src: "images/cards/card0.png" },
