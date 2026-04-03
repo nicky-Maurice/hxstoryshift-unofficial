@@ -252,11 +252,11 @@ selectedCards.forEach(card => {
     element.src = card.src;
     element.classList.add("image");
     element.style.display = "block";
-    element.style.marginBottom = "80px";
+    element.style.marginBottom = "100px";
 
     if (card.type === "hyperdeath") {
         const link = document.createElement("a");
-        link.href = "spooky.html";
+        link.href = "spooky";
 
         link.appendChild(element);
         element = link;
