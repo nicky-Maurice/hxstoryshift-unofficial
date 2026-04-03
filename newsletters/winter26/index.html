@@ -165,6 +165,9 @@
                          <br><br><br><br><br><br>
                          Uh, here, have 3 cards we got on sale the day after.
                          <br><br><br>
+                </p>
+                    <div id="valentine-cards"></div>
+                <p>
                          Share them with your loved ones and collect em’ all! And no refreshing the page to cheat!
                          <br><br><br>
                          Happy Valentine’s~ !! ♡
@@ -208,6 +211,59 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const daysSpan = document.getElementById("daysSinceValentine");
         if (daysSpan) daysSpan.textContent = diffDays;
+
+        const cardPool = [
+    { src: "images/cards/card0.png" },
+    { src: "images/cards/card1.png" },
+    { src: "images/cards/card2.png" },
+    { src: "images/cards/card3.png" },
+    { src: "images/cards/card4.png" },
+    { src: "images/cards/card5.png" },
+    { src: "images/cards/card6.png" },
+    { src: "images/cards/card7.png" },
+    { src: "images/cards/card8.png" },
+    { src: "images/cards/card9.png" },
+    { src: "images/cards/card10.png" },
+
+    { src: "images/cards/card11.png", type: "hyperdeath" },
+
+    { src: "images/cards/card12.png" },
+];
+
+// Shuffle
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// Pick 3
+shuffle(cardPool);
+const selectedCards = cardPool.slice(0, 3);
+
+// Container
+const container = document.getElementById("valentine-cards");
+
+// Render
+selectedCards.forEach(card => {
+
+    let element = document.createElement("img");
+    element.src = card.src;
+    element.classList.add("pixelated", "desktop");
+    element.style.display = "block";
+    element.style.marginBottom = "20px";
+
+    if (card.type === "hyperdeath") {
+        const link = document.createElement("a");
+        link.href = "spooky.html";
+
+        link.appendChild(element);
+        element = link;
+    }
+
+    container.appendChild(element);
+});
     }
 });
 </script>
