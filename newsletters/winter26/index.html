@@ -267,35 +267,39 @@ selectedCards.forEach(card => {
 
     let element = document.createElement("img");
     element.src = card.src;
-    element.classList.add("image");
+    element.classList.add("pixelated", "desktop");
     element.style.display = "block";
     element.style.marginBottom = "100px";
 
+    // SPECIAL CASE: Hyperdeath
     if (card.type === "hyperdeath") {
-    const container = document.createElement("div");
-    container.style.position = "relative"; // needed to position link inside
+        // Create a wrapper div with relative positioning
+        const wrapper = document.createElement("div");
+        wrapper.style.position = "relative";
+        wrapper.style.display = "inline-block"; // shrink to image size
 
-    const img = document.createElement("img");
-    img.src = card.src;
-    img.classList.add("pixelated", "desktop");
-    container.appendChild(img);
+        // Add the image
+        wrapper.appendChild(element);
 
-    const link = document.createElement("a");
-    link.href = "coronado.html";
-    link.textContent = "Link";
-    link.style.position = "absolute";
-    link.style.top = "40%";     // adjust vertical position
-    link.style.left = "30%";    // adjust horizontal position
-    link.style.width = "40px";  // clickable area width
-    link.style.height = "40px"; // clickable area height
-    link.style.display = "block";
+        // Create the clickable link overlay
+        const link = document.createElement("a");
+        link.href = "spooky.html";
+        link.textContent = "Link";
+        link.style.position = "absolute";
+        link.style.top = "50%";       // vertically center
+        link.style.left = "50%";      // horizontally center
+        link.style.transform = "translate(-50%, -50%)"; // center properly
+        link.style.fontFamily = "bold-font";
+        link.style.color = "white";
+        link.style.fontSize = "2rem"; // tweak as needed
+        link.style.textDecoration = "none"; // remove underline
+        link.style.pointerEvents = "auto"; // ensure clickable
+        link.style.textAlign = "center";
 
-    // optional: show pointer when hovering
-    link.style.cursor = "pointer";
+        wrapper.appendChild(link);
 
-    container.appendChild(link);
-    element = container;
-}
+        element = wrapper; // replace element with wrapper for appending
+    }
 
     container.appendChild(element);
 });
