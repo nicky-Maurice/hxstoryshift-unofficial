@@ -3,18 +3,18 @@ body, html {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
 }
 
 .hyperdeath-container {
     display: flex;
     flex-direction: column;
-    align-items: center;       /* horizontal centering */
-    justify-content: center;   /* vertical centering */
-    min-height: 40vh;         /* full viewport height */
-    gap: 1.5rem;               /* spacing between header, skull, subtext */
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 1.5rem;
     text-align: center;
-    padding: 2rem;             /* optional spacing from edges */
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
 #header-text {
@@ -22,13 +22,12 @@ body, html {
     font-family: bold-font;
     font-size: clamp(2rem, 6vw, 4rem);
     margin: 0;
-    min-height: 6rem;           /* reserves space so skull doesn't move */
 }
 
 #skull {
     width: 400px;
     max-width: 90vw;
-    opacity: 0;                 /* for fade-in effect */
+    opacity: 0;
 }
 
 #typewriter-text {
@@ -36,18 +35,18 @@ body, html {
     color: white;
     font-size: clamp(1rem, 2vw, 1.5rem);
     margin: 0;
-    min-height: 24rem;  /* reserve enough space for full text */
-    min-width: 48rem;
-    white-space: pre-wrap; /* preserves line breaks in your JS */
+    max-width: 100%;
+    white-space: pre-wrap;
 }
 
-/* Mobile adjustments */
-@media (max-width: 10px) {
+/* Mobile */
+@media (max-width: 768px) {
     #skull { width: 70vw; }
+
     #header-text { font-size: 8vw; }
-    #typewriter-text { 
-        font-size: 4vw,
-        min-width: 0px;
-        max-height: 50vh;
+
+    #typewriter-text {
+        font-size: 4vw;
+        max-width: 90vw;
     }
 }
