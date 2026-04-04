@@ -8,23 +8,68 @@
         <meta name="author" content="Asriel Dreemurr">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>You Idiot.</title>
-        <link rel="icon" type="image/png" href="../../../images/faviconbrokenheart.png">
+        <link rel="icon" type="image/png" href="../../../images/faviconheart.png">
     </head>
     <body>
         <article>
-          <div>
-              <br><br><br>
-          <h1 style="font-size: clamp(20px, 2.5vw, 35px);">INTERVIEW:</h1>
-              <br>
-          <h1>manado210</h1>
-          <span class="cs">"coronado"</span>
-              <br><br><br>
-              <div class="image-container">
-                <img class="pixelated" src="images/shift_boy_project_cara.png">
-              </div>
-                <br>
-               <span class="cs" style="font-size: clamp(6px, 2.5vw, 12px);">(flashing lights warning)</span>
-              </div>
+          <div class="image-container">
+            <img id="skull" class="pixelated desktop" src="images/HyperGonerStill.png">
+        </div>
+
+        <p id="typewriter-text"></p>
+
+        <audio id="laugh-audio" src="audio/mus_sfx_hypergoner_laugh.ogg"></audio>
         </article>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+    const skull = document.getElementById("skull");
+    const audio = document.getElementById("laugh-audio");
+
+    // Step 1: Fade in still image
+    setTimeout(() => {
+        skull.style.opacity = "1";
+    }, 100);
+
+    // Step 2: After fade, trigger laugh sequence
+    setTimeout(() => {
+        // Swap to animated GIF
+        skull.src = "images/HyperGonerLaugh.gif";
+
+        // Play sound
+        audio.play();
+
+        // Change favicon
+        changeFavicon("images/broken_heart.png");
+
+        // Start typewriter
+        startTypewriter("YOU IDIOT.");
+    }, 2500); // delay matches fade timing
+});
+            function changeFavicon(src) {
+    let link = document.querySelector("link[rel~='icon']");
+    
+    if (!link) {
+        link = document.createElement("link");
+        link.rel = "icon";
+        document.head.appendChild(link);
+    }
+
+    link.href = src;
+}
+            function startTypewriter(text) {
+    const element = document.getElementById("typewriter-text");
+    let i = 0;
+
+    function type() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, 40); // speed (lower = faster)
+        }
+    }
+
+    type();
+}
+        </script>
     </body>
 </html>
