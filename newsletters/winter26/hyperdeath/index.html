@@ -1,131 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You Idiot.</title>
-    
-    <!-- Site-wide CSS -->
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="../../../style.css">
-    
-    <!-- Page-specific CSS (must be last to override global styles) -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Default favicon -->
-    <link rel="icon" type="image/png" href="../../../images/faviconheart.png">
+  <meta charset="utf-8">
+  <meta name="description" content="Hyper Goner - Asriel Dreemurr">
+  <meta name="author" content="Asriel Dreemurr">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You Idiot.</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="../../../images/faviconheart.png">
 </head>
 <body>
-<article>
-  <div class="hyperdeath-container">
-    <h1 id="header-text"></h1>
-    <div class="image-container">
-      <img id="skull" class="pixelated" src="images/HyperGonerStill.png" alt="Skull">
+  <article>
+    <div class="hyperdeath-container">
+      <h1 id="header-text"></h1>
+
+      <div class="image-container">
+        <img id="skull" class="pixelated" src="images/HyperGonerStill.png" alt="Skull">
+      </div>
+
+      <p id="typewriter-text"></p>
     </div>
-    <p id="typewriter-text"></p>
-  </div>
 
-  <audio id="laugh-audio" src="audio/mus_sfx_hypergoner_laugh.ogg"></audio>
-  <audio id="type-sound" src="audio/mus_sfx_a_gigatalk.wav"></audio>
-</article>
+    <!-- Audio definitions -->
+    <audio id="laugh-audio" src="audio/mus_sfx_hypergoner_laugh.ogg"></audio>
+    <audio id="type-sound" src="audio/mus_sfx_a_gigatalk.wav"></audio>
+    <audio id="subtext-sound" src="audio/mus_sfx_a_gigatalk.wav"></audio>
+  </article>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const skull = document.getElementById("skull");
-            const laughAudio = document.getElementById("laugh-audio");
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+      const skull = document.getElementById("skull");
+      const laughAudio = document.getElementById("laugh-audio");
+      const typeSound = document.getElementById("type-sound");
+      const subtextSound = document.getElementById("subtext-sound");
 
-            document.body.addEventListener("click", () => {
-                // Fade in skull
-                skull.style.opacity = "1";
+      // Initially hide skull
+      skull.style.opacity = 0;
 
-                // Step 1: header types
-                setTimeout(() => {
-                    showHeader();
-                }, 500);
+      document.body.addEventListener("click", () => {
+          // Fade in skull
+          skull.style.transition = "opacity 2s ease";
+          skull.style.opacity = 1;
 
-                // Step 2: laugh + effects
-                setTimeout(() => {
-                    skull.src = "images/HyperGonerLaugh.gif";
-                    laughAudio.play();
-                    changeFavicon("../../../images/faviconbrokenheart.png");
+          // Header types after 0.5s
+          setTimeout(() => typeHeader(), 500);
 
-                    startTypewriter(
-                        "You were foiled by the cunning Asriel Dreemurr,\n" +
-                        "evil incarnate.\n" +
-                        "Beg him for forgiveness,\n" +
-                        "and he just may be merciful enough to give you your data back."
-                    );
-                }, 2500);
+          // Laugh + subtext after 2.5s
+          setTimeout(() => {
+              skull.src = "images/HyperGonerLaugh.gif";
+              laughAudio.currentTime = 0;
+              laughAudio.play();
+              changeFavicon("../../../images/faviconbrokenheart.png");
 
-            }, { once: true });
-        });
+              startSubtextTypewriter(
+                  "You were foiled by the cunning Asriel Dreemurr,\n" +
+                  "evil incarnate.\nBeg him for forgiveness,\n" +
+                  "and he just may be merciful enough to give you your data back."
+              );
+          }, 2500);
+      }, { once: true });
 
-        function showHeader() {
-            const header = document.getElementById("header-text");
-            const sound = document.getElementById("type-sound");
-            const text = "YOU IDIOT.";
-            let i = 0;
+      function typeHeader() {
+          const header = document.getElementById("header-text");
+          const text = "YOU IDIOT.";
+          let i = 0;
 
-            function type() {
-                if (i < text.length) {
-                    header.textContent += text.charAt(i);
+          function type() {
+              if (i < text.length) {
+                  header.textContent += text.charAt(i);
 
-                    if (i % 2 === 0) { // play sound every 2 chars
-                        try {
-                            const click = sound.cloneNode();
-                            click.volume = 0.4;
-                            click.play();
-                        } catch(e) {}
-                    }
+                  // Play typing sound every 2 chars
+                  if (i % 2 === 0) {
+                      try {
+                          const click = typeSound.cloneNode();
+                          click.volume = 0.4;
+                          click.play();
+                      } catch {}
+                  }
 
-                    i++;
-                    setTimeout(type, 80);
-                }
-            }
+                  i++;
+                  setTimeout(type, 80);
+              }
+          }
 
-            type();
-        }
+          type();
+      }
 
-        function startTypewriter(text) {
-            const element = document.getElementById("typewriter-text");
-            const sound = document.getElementById("type-sound");
-            let i = 0;
+      function startSubtextTypewriter(text) {
+          const element = document.getElementById("typewriter-text");
+          element.innerHTML = ""; // clear previous
+          let i = 0;
 
-            function type() {
-                if (i < text.length) {
-                    const char = text.charAt(i);
+          function type() {
+              if (i < text.length) {
+                  const char = text.charAt(i);
+                  if (char === "\n") element.innerHTML += "<br>";
+                  else {
+                      element.innerHTML += char;
+                      // Play sound every 3 chars
+                      if (i % 3 === 0) {
+                          try {
+                              const click = subtextSound.cloneNode();
+                              click.volume = 0.4;
+                              click.play();
+                          } catch {}
+                      }
+                  }
+                  i++;
+                  setTimeout(type, 40);
+              }
+          }
 
-                    if (char === "\n") {
-                        element.innerHTML += "<br>";
-                    } else {
-                        element.innerHTML += char;
-                        if (i % 3 === 0) { // play sound every 3 chars
-                            try {
-                                const click = sound.cloneNode();
-                                click.volume = 0.4;
-                                click.play();
-                            } catch(e) {}
-                        }
-                    }
+          type();
+      }
 
-                    i++;
-                    setTimeout(type, 40);
-                }
-            }
+      function changeFavicon(src) {
+          let link = document.querySelector("link[rel='icon']");
+          if (link) link.remove();
 
-            type();
-        }
-
-        function changeFavicon(src) {
-            const oldLink = document.querySelector("link[rel='icon']");
-            if (oldLink) oldLink.remove();
-
-            const newLink = document.createElement("link");
-            newLink.rel = "icon";
-            newLink.type = "image/png";
-            newLink.href = src + "?v=" + Date.now();
-            document.head.appendChild(newLink);
-        }
-    </script>
+          const newLink = document.createElement("link");
+          newLink.rel = "icon";
+          newLink.type = "image/png";
+          newLink.href = src + "?v=" + Date.now();
+          document.head.appendChild(newLink);
+      }
+  });
+  </script>
 </body>
 </html>
