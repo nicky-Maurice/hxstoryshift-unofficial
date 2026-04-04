@@ -21,7 +21,7 @@
         <p id="typewriter-text"></p>
 
         <audio id="laugh-audio" src="audio/mus_sfx_hypergoner_laugh.ogg"></audio>
-        <audio id="type-sound" src="audio/mus_sfx_a_gigatalk.mp3"></audio>
+        <audio id="type-sound" src="audio/mus_sfx_a_gigatalk.wav"></audio>
         </article>
         <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -84,19 +84,15 @@ function changeFavicon(src) {
     let link = document.querySelector("link[rel='icon']");
 
     if (link) {
-        link.remove(); // remove old one completely
+        link.remove();
     }
 
     const newLink = document.createElement("link");
     newLink.rel = "icon";
     newLink.type = "image/png";
-    newLink.href = src + "?v=" + Date.now(); // cache bust
+    newLink.href = src + "?v=" + Date.now();
 
     document.head.appendChild(newLink);
-}
-
-    // prevent caching issue
-    link.href = src + "?v=" + Date.now();
 }
 
 function startTypewriter(text) {
