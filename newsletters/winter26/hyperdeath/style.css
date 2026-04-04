@@ -1,29 +1,29 @@
-/* Container for skull */
-.image-container {
+/* Dedicated relative container */
+.hyperdeath-container {
     position: relative;
     width: 100%;
-    min-height: 500px;   /* adjust for desktop */
+    min-height: 100vh;  /* full viewport height */
     text-align: center;
 }
 
-/* Skull image absolute and centered */
+/* Skull absolute, centered inside container */
 #skull {
     position: absolute;
-    top: 50%;            /* adjust to move skull up/down */
+    top: 50%; 
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 2s ease;
-    width: 500px;        /* desktop size */
-    max-width: 90vw;     /* responsive for mobile */
+    width: 500px;
+    max-width: 90vw;
     image-rendering: pixelated;
     z-index: 1;
 }
 
-/* Header types above skull */
+/* Header above skull */
 #header-text {
     position: absolute;
-    top: 20%;           /* adjust distance from top */
+    top: 10%;        /* adjust vertical spacing */
     left: 50%;
     transform: translateX(-50%);
     color: white;
@@ -32,10 +32,10 @@
     z-index: 2;
 }
 
-/* Subtext types below skull */
+/* Subtext below skull */
 #typewriter-text {
     position: absolute;
-    top: 75%;           /* adjust distance from top */
+    top: 75%;       /* adjust vertical spacing */
     left: 50%;
     transform: translateX(-50%);
     font-family: bold-font;
@@ -49,15 +49,15 @@
 @media (max-width: 600px) {
     #skull {
         width: 80vw;
-        top: 45%;
+        top: 50%;
     }
     #header-text {
         font-size: clamp(24px, 8vw, 48px);
-        top: 15%;
+        top: 5%;
     }
     #typewriter-text {
         font-size: clamp(14px, 4vw, 18px);
-        top: 70%;
+        top: 80%;
         min-height: 100px;
     }
 }
