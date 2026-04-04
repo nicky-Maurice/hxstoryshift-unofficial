@@ -2,13 +2,13 @@
   position: relative;
   height: 520px;
   text-align: center;
-  margin-top: 40px; /* increase space so header and skull don’t collide */
+  margin-top: 80px; /* increase space so header and skull don’t collide */
 }
 
 /* Skull stays centered */
 #skull {
     position: fixed;      /* keeps it in place */
-    top: 50%;             /* vertical center */
+    top: 25%;             /* vertical center */
     left: 50%;            /* horizontal center */
     transform: translate(-50%, -50%);
     width: 500px;         /* adjust size */
