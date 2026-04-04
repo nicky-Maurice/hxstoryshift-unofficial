@@ -11,7 +11,7 @@ body, html {
     flex-direction: column;
     align-items: center;       /* horizontal centering */
     justify-content: center;   /* vertical centering */
-    min-height: 80vh;         /* full viewport height */
+    min-height: 60vh;         /* full viewport height */
     gap: 1.5rem;               /* spacing between header, skull, subtext */
     text-align: center;
     padding: 2rem;             /* optional spacing from edges */
