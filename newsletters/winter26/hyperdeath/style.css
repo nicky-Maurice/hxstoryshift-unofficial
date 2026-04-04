@@ -23,12 +23,13 @@
 /* Header above skull */
 #header-text {
     position: absolute;
-    top: 10%;        /* adjust vertical spacing */
+    top: 5%;        /* bring it higher */
     left: 50%;
     transform: translateX(-50%);
     color: white;
-    font-size: clamp(32px, 6vw, 64px);
+    font-size: clamp(32px, 6vw, 64px);  /* responsive font size */
     text-align: center;
+    max-width: 90%;                     /* prevent early wrapping */
     z-index: 2;
 }
 
@@ -40,8 +41,8 @@
     transform: translateX(-50%);
     font-family: bold-font;
     text-align: center;
-    font-size: clamp(16px, 4vw, 20px);
-    min-height: 120px;
+    font-size: clamp(16px, 4vw, 20px);  /* responsive font size */
+    max-width: 90%;                      /* prevent early wrapping */
     z-index: 2;
 }
 
