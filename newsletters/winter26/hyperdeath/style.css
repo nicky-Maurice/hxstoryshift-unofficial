@@ -54,7 +54,7 @@ body, html {
 
     #typewriter-text {
         font-size: 4vw;
-        max-width: 90vw;
+        max-width: 95vw;
         white-space: pre-wrap;
         word-break: break-word;
     }
