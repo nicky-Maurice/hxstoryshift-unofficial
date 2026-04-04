@@ -42,11 +42,11 @@ body, html {
 }
 
 /* Mobile adjustments */
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     #skull { width: 70vw; }
     #header-text { font-size: 8vw; }
     #typewriter-text { 
-        font-size: 4vw, 
-        max-width: 12vw; 
+        font-size: 4vw,
+        min-width: 0px;
     }
 }
