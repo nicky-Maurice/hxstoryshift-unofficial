@@ -1,16 +1,18 @@
-/* === Skull Image === */
-#skull {
-    opacity: 0;
-    transition: opacity 2s ease;
-
-    width: 500px;      /* adjust size here */
-    max-width: 90vw;   /* responsive on mobile */
+.image-container {
+  position: relative; /* keep relative for child positioning */
+  height: 520px; /* fixed height to prevent shifting */
+  text-align: center;
 }
 
-/* === Prevent layout shifting === */
-.image-container {
-    min-height: 520px;
-    text-align: center;
+#skull {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  max-width: 90vw;
+  opacity: 0;
+  transition: opacity 2s ease;
 }
 
 /* === Header (YOU IDIOT.) === */
