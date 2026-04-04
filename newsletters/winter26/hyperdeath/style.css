@@ -2,7 +2,7 @@
   position: relative;
   height: 520px;
   text-align: center;
-  margin-top: 125px; /* increase space so header and skull don’t collide */
+  margin-top: 400px; /* increase space so header and skull don’t collide */
 }
 
 #skull {
