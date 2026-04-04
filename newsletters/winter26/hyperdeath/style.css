@@ -1,7 +1,8 @@
 .image-container {
-  position: relative; /* keep relative for child positioning */
-  height: 520px; /* fixed height to prevent shifting */
+  position: relative;
+  height: 520px; /* fixed height */
   text-align: center;
+  margin-top: 100px; /* space for header if positioned absolutely */
 }
 
 #skull {
@@ -15,15 +16,28 @@
   transition: opacity 2s ease;
 }
 
-/* === Header (YOU IDIOT.) === */
-#header-text {
-    color: white;              /* override yellow */
-    margin-bottom: 20px;
+article {
+  position: relative;  /* Make article a positioning context */
+  min-height: 600px;   /* Enough space to hold skull, header, and subtext */
 }
 
-/* === Subtext (typewriter) === */
+#header-text {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 60px;  /* Reserve vertical space */
+  line-height: 60px; /* Vertically center text */
+  white-space: nowrap;
+  color: white;
+  font-size: 3em;
+  margin: 0;
+  z-index: 10;
+}
+
 #typewriter-text {
-    font-family: bold-font;    /* use your bold font */
-    text-align: center;
-    min-height: 120px;         /* prevents pushing layout */
+  font-family: bold-font;
+  text-align: center;
+  min-height: 120px;
+  margin-top: 20px; /* some breathing room */
 }
