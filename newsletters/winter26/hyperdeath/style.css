@@ -1,33 +1,59 @@
+/* === Skull Container === */
 .image-container {
-  position: relative;
-  height: 520px;
-  text-align: center;
-  margin-top: 80px; /* increase space so header and skull don’t collide */
+    position: relative;  /* container for absolute skull */
+    width: 100%;
+    height: auto;
+    text-align: center;
+    min-height: 520px;   /* desktop spacing */
 }
 
+/* === Skull Image === */
 #skull {
+    position: absolute;  /* remove from normal flow */
+    top: 50%;            /* vertical center in container */
+    left: 50%;           /* horizontal center */
+    transform: translate(-50%, -50%); /* true center */
     opacity: 0;
     transition: opacity 2s ease;
-    display: block;
-    margin: 100px auto 0 auto; /* push it down on desktop */
-    width: 500px;              /* desktop size */
-    max-width: 90vw;           /* responsive max */
-    image-rendering: pixelated; /* keep pixel-art look */
+    width: 500px;        /* desktop size */
+    max-width: 90vw;     /* responsive */
+    image-rendering: pixelated;
 }
 
+/* === Header === */
 #header-text {
     color: white;
     text-align: center;
-    font-size: clamp(32px, 6vw, 64px); /* scales for mobile/desktop */
-    margin-bottom: 20px;
+    font-size: clamp(32px, 6vw, 64px);
+    margin-bottom: 10px;  /* reduces spacing */
+    z-index: 2;            /* appears above skull */
+    position: relative;
 }
 
+/* === Subtext === */
 #typewriter-text {
     font-family: bold-font;
     text-align: center;
     font-size: clamp(16px, 4vw, 20px);
-    min-height: 120px;   /* reserve space to avoid pushing skull */
-    margin-top: 20px;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-top: 10px;     /* smaller spacing above subtext */
+    min-height: 120px;
+}
+
+/* === Mobile adjustments === */
+@media (max-width: 600px) {
+    #skull {
+        width: 80vw;
+        top: 45%;          /* slightly higher on mobile */
+    }
+
+    #header-text {
+        font-size: clamp(24px, 8vw, 48px);
+        margin-bottom: 5px;
+    }
+
+    #typewriter-text {
+        font-size: clamp(14px, 4vw, 18px);
+        min-height: 100px;
+        margin-top: 5px;
+    }
 }
