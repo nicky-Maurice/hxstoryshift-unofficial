@@ -3,7 +3,8 @@
     <head lang="en">
         <meta charset="utf-8">
         <link rel="stylesheet" href="../../style.css">
-         <link rel="stylesheet" href="../../../style.css">
+        <link rel="stylesheet" href="../../../style.css">
+        <link rel="stylesheet" href="style.css">
         <meta name="description" content="Hyper Goner - Asriel Dreemurr">
         <meta name="author" content="Asriel Dreemurr">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,7 @@
         <article>
             <h1 id="header-text"></h1>
           <div class="image-container">
-            <img id="skull" class="pixelated" src="images/HyperGonerStill.png">
+            <img id="skull" class="pixelated" src="images/HyperGonerStill.png" style="opacity: 0;">
         </div>
 
         <p id="typewriter-text"></p>
@@ -63,8 +64,8 @@ function showHeader() {
         if (i < text.length) {
             header.textContent += text.charAt(i);
 
-            sound.currentTime = 0;
-            sound.play();
+            const click = sound.cloneNode();
+            click.play();
 
             i++;
             setTimeout(type, 80);
