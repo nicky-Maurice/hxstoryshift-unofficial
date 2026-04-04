@@ -1,8 +1,8 @@
 .image-container {
   position: relative;
-  height: 520px; /* fixed height */
+  height: 520px;
   text-align: center;
-  margin-top: 100px; /* space for header if positioned absolutely */
+  margin-top: 80px; /* increase space so header and skull don’t collide */
 }
 
 #skull {
@@ -23,7 +23,7 @@ article {
 
 #header-text {
   position: absolute;
-  top: 20px;
+  top: 5px;
   left: 50%;
   transform: translateX(-50%);
   height: 60px;  /* Reserve vertical space */
