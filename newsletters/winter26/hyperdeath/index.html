@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.addEventListener("click", () => {
 
+        console.log("* Click.");
+        
         // Fade in skull
         skull.style.opacity = "1";
 
@@ -64,8 +66,11 @@ function showHeader() {
         if (i < text.length) {
             header.textContent += text.charAt(i);
 
+            try {
             const click = sound.cloneNode();
+            click.volume = 0.4;
             click.play();
+            } catch (e) {}
 
             i++;
             setTimeout(type, 80);
@@ -108,9 +113,11 @@ function startTypewriter(text) {
                 element.innerHTML += "<br>";
             } else {
                 element.innerHTML += char;
+                try {
                 const click = sound.cloneNode();
-                click.volume = 0.4; // optional: quieter typing
+                click.volume = 0.4;
                 click.play();
+                } catch (e) {}
             }
 
             i++;
