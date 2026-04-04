@@ -45,5 +45,8 @@ body, html {
 @media (max-width: 600px) {
     #skull { width: 70vw; }
     #header-text { font-size: 8vw; }
-    #typewriter-text { font-size: 4vw, min-width: 24rem; }
+    #typewriter-text { 
+        font-size: 4vw, 
+        min-width: 24rem; 
+    }
 }
