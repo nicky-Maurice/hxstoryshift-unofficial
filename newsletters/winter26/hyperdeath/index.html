@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             skull.src = "images/HyperGonerLaugh.gif"; // make sure filename matches
             audio.play();
-            changeFavicon("images/faviconbrokenheart.png");
+            changeFavicon("../../../images/faviconbrokenheart.png");
 
             startTypewriter(
                 "You were foiled by the cunning Asriel Dreemurr, evil incarnate.\n" +
@@ -76,13 +76,19 @@ function showHeader() {
 }
 
 function changeFavicon(src) {
-    let link = document.querySelector("link[rel~='icon']");
-    
-    if (!link) {
-        link = document.createElement("link");
-        link.rel = "icon";
-        document.head.appendChild(link);
+    let link = document.querySelector("link[rel='icon']");
+
+    if (link) {
+        link.remove(); // remove old one completely
     }
+
+    const newLink = document.createElement("link");
+    newLink.rel = "icon";
+    newLink.type = "image/png";
+    newLink.href = src + "?v=" + Date.now(); // cache bust
+
+    document.head.appendChild(newLink);
+}
 
     // prevent caching issue
     link.href = src + "?v=" + Date.now();
@@ -102,8 +108,9 @@ function startTypewriter(text) {
                 element.innerHTML += "<br>";
             } else {
                 element.innerHTML += char;
-                sound.currentTime = 0;
-                sound.play();
+                const click = sound.cloneNode();
+                click.volume = 0.4; // optional: quieter typing
+                click.play();
             }
 
             i++;
