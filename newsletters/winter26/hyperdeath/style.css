@@ -14,7 +14,8 @@ body, html {
     min-height: 100dvh;
     gap: 1.5rem;
     text-align: center;
-    padding-top: 10vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
     box-sizing: border-box;
 }
 
