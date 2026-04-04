@@ -1,59 +1,63 @@
-/* === Skull Container === */
+/* Container for skull */
 .image-container {
-    position: relative;  /* container for absolute skull */
+    position: relative;
     width: 100%;
-    height: auto;
+    min-height: 500px;   /* adjust for desktop */
     text-align: center;
-    min-height: 520px;   /* desktop spacing */
 }
 
-/* === Skull Image === */
+/* Skull image absolute and centered */
 #skull {
-    position: absolute;  /* remove from normal flow */
-    top: 50%;            /* vertical center in container */
-    left: 50%;           /* horizontal center */
-    transform: translate(-50%, -50%); /* true center */
+    position: absolute;
+    top: 50%;            /* adjust to move skull up/down */
+    left: 50%;
+    transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 2s ease;
     width: 500px;        /* desktop size */
-    max-width: 90vw;     /* responsive */
+    max-width: 90vw;     /* responsive for mobile */
     image-rendering: pixelated;
+    z-index: 1;
 }
 
-/* === Header === */
+/* Header types above skull */
 #header-text {
+    position: absolute;
+    top: 20%;           /* adjust distance from top */
+    left: 50%;
+    transform: translateX(-50%);
     color: white;
-    text-align: center;
     font-size: clamp(32px, 6vw, 64px);
-    margin-bottom: 10px;  /* reduces spacing */
-    z-index: 2;            /* appears above skull */
-    position: relative;
+    text-align: center;
+    z-index: 2;
 }
 
-/* === Subtext === */
+/* Subtext types below skull */
 #typewriter-text {
+    position: absolute;
+    top: 75%;           /* adjust distance from top */
+    left: 50%;
+    transform: translateX(-50%);
     font-family: bold-font;
     text-align: center;
     font-size: clamp(16px, 4vw, 20px);
-    margin-top: 10px;     /* smaller spacing above subtext */
     min-height: 120px;
+    z-index: 2;
 }
 
-/* === Mobile adjustments === */
+/* Mobile adjustments */
 @media (max-width: 600px) {
     #skull {
         width: 80vw;
-        top: 45%;          /* slightly higher on mobile */
+        top: 45%;
     }
-
     #header-text {
         font-size: clamp(24px, 8vw, 48px);
-        margin-bottom: 5px;
+        top: 15%;
     }
-
     #typewriter-text {
         font-size: clamp(14px, 4vw, 18px);
+        top: 70%;
         min-height: 100px;
-        margin-top: 5px;
     }
 }
