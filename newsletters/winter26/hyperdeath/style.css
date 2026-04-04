@@ -1,7 +1,26 @@
+/* === Skull Image === */
 #skull {
     opacity: 0;
     transition: opacity 2s ease;
 
-    width: 500px;     /* increase from 300 → tweak as needed */
-    max-width: 90vw;  /* still scales on mobile */
+    width: 500px;      /* adjust size here */
+    max-width: 90vw;   /* responsive on mobile */
+}
+
+/* === Prevent layout shifting === */
+.image-container {
+    min-height: 520px; /* keeps skull from moving */
+}
+
+/* === Header (YOU IDIOT.) === */
+#header-text {
+    color: white;              /* override yellow */
+    margin-bottom: 20px;
+}
+
+/* === Subtext (typewriter) === */
+#typewriter-text {
+    font-family: bold-font;    /* use your bold font */
+    text-align: center;
+    min-height: 120px;         /* prevents pushing layout */
 }
