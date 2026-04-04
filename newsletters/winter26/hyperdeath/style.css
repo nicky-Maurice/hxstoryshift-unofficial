@@ -10,9 +10,7 @@
 /* === Prevent layout shifting === */
 .image-container {
     min-height: 520px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 /* === Header (YOU IDIOT.) === */
