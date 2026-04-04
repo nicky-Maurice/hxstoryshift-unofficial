@@ -2,42 +2,43 @@
   position: relative;
   height: 520px;
   text-align: center;
-  margin-top: 400px; /* increase space so header and skull don’t collide */
+  margin-top: 80px; /* increase space so header and skull don’t collide */
 }
 
+/* Skull stays centered */
 #skull {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 500px;
-  max-width: 90vw;
-  opacity: 0;
-  transition: opacity 2s ease;
+    position: fixed;      /* keeps it in place */
+    top: 50%;             /* vertical center */
+    left: 50%;            /* horizontal center */
+    transform: translate(-50%, -50%);
+    width: 500px;         /* adjust size */
+    max-width: 90vw;      /* responsive */
+    opacity: 0;           /* fade in with JS */
+    transition: opacity 2s ease;
+    z-index: 1;           /* behind header and text */
 }
 
-article {
-  position: relative;  /* Make article a positioning context */
-  min-height: 600px;   /* Enough space to hold skull, header, and subtext */
-}
-
+/* Header independent of skull */
 #header-text {
-  position: absolute;
-  top: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 60px;  /* Reserve vertical space */
-  line-height: 60px; /* Vertically center text */
-  white-space: nowrap;
-  color: white;
-  font-size: 3em;
-  margin: 0;
-  z-index: 10;
+    position: absolute;   /* remove it from document flow */
+    top: 20px;            /* distance from top of viewport */
+    left: 50%;            /* horizontal center */
+    transform: translateX(-50%);
+    color: white;
+    font-size: 2.75em;    /* adjust if needed */
+    z-index: 2;           /* above skull */
+    margin: 0;            /* no extra spacing affecting layout */
 }
 
+/* Subtext below skull */
 #typewriter-text {
-  font-family: bold-font;
-  text-align: center;
-  min-height: 120px;
-  margin-top: 20px; /* some breathing room */
+    position: absolute;   /* keep independent of flow */
+    top: 75%;             /* adjust vertical placement below skull */
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: bold-font;
+    color: white;
+    text-align: center;
+    min-height: 120px;    /* prevent clipping */
+    z-index: 2;
 }
