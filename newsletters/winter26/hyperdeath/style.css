@@ -5,28 +5,29 @@
   margin-top: 80px; /* increase space so header and skull don’t collide */
 }
 
-@media (max-width: 600px) {
-    #skull {
-        width: 90vw;          /* shrink to fit screen */
-        top: 35%;             /* slightly higher on small screens */
-    }
+#skull {
+    opacity: 0;
+    transition: opacity 2s ease;
+    display: block;
+    margin: 100px auto 0 auto; /* push it down on desktop */
+    width: 500px;              /* desktop size */
+    max-width: 90vw;           /* responsive max */
+    image-rendering: pixelated; /* keep pixel-art look */
 }
 
 #header-text {
-    position: relative;
-    z-index: 2;             /* above skull if needed */
-    font-size: clamp(24px, 6vw, 48px); /* scales with screen */
-    margin-bottom: 1rem;
     color: white;
     text-align: center;
+    font-size: clamp(32px, 6vw, 64px); /* scales for mobile/desktop */
+    margin-bottom: 20px;
 }
 
 #typewriter-text {
     font-family: bold-font;
     text-align: center;
-    min-height: 120px;
-    font-size: clamp(14px, 4vw, 20px);  /* responsive size */
-    margin-top: 0.5rem;
+    font-size: clamp(16px, 4vw, 20px);
+    min-height: 120px;   /* reserve space to avoid pushing skull */
+    margin-top: 20px;
     margin-left: 1rem;
     margin-right: 1rem;
 }
