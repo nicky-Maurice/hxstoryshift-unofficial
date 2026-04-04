@@ -34,7 +34,7 @@ body, html {
 #typewriter-text {
     font-family: bold-font;
     color: white;
-    font-size: clamp(1rem, 3vw, 2rem);
+    font-size: clamp(1rem, 2vw, 1.5rem);
     margin: 0;
     max-width: 160vw;  /* keeps the paragraph narrower on large screens */
     min-height: 24rem;  /* reserve enough space for full text */
