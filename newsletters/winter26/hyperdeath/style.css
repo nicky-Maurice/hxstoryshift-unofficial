@@ -47,6 +47,6 @@ body, html {
     #header-text { font-size: 8vw; }
     #typewriter-text { 
         font-size: 4vw, 
-        min-width: 12rem; 
+        min-width: 12vw; 
     }
 }
