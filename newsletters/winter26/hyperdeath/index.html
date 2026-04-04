@@ -12,40 +12,69 @@
     </head>
     <body>
         <article>
+            <h1 id="header-text"></h1>
           <div class="image-container">
-            <img id="skull" class="pixelated desktop" src="images/HyperGonerStill.png">
+            <img id="skull" class="pixelated" src="images/HyperGonerStill.png">
         </div>
 
         <p id="typewriter-text"></p>
 
         <audio id="laugh-audio" src="audio/mus_sfx_hypergoner_laugh.ogg"></audio>
+        <audio id="type-sound" src="audio/mus_sfx_a_gigatalk.mp3"></audio>
         </article>
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const skull = document.getElementById("skull");
     const audio = document.getElementById("laugh-audio");
 
-    // Step 1: Fade in still image
-    setTimeout(() => {
+    document.body.addEventListener("click", () => {
+
+        // Fade in skull
         skull.style.opacity = "1";
-    }, 100);
 
-    // Step 2: After fade, trigger laugh sequence
-    setTimeout(() => {
-        // Swap to animated GIF
-        skull.src = "images/HyperGonerLaugh.gif";
+        // Step 1: header appears
+        setTimeout(() => {
+            showHeader();
+        }, 500);
 
-        // Play sound
-        audio.play();
+        // Step 2: laugh + effects
+        setTimeout(() => {
+            skull.src = "images/HyperGonerLaugh.gif"; // make sure filename matches
+            audio.play();
+            changeFavicon("images/faviconbrokenheart.png");
 
-        // Change favicon
-        changeFavicon("images/broken_heart.png");
+            startTypewriter(
+                "You were foiled by the cunning Asriel Dreemurr, evil incarnate.\n" +
+                "Beg him for forgiveness, and he just may be merciful enough to give you your data back."
+            );
+        }, 2500);
 
-        // Start typewriter
-        startTypewriter("YOU IDIOT.");
-    }, 2500); // delay matches fade timing
+    }, { once: true });
 });
-            function changeFavicon(src) {
+
+function showHeader() {
+    const header = document.getElementById("header-text");
+    const sound = document.getElementById("type-sound");
+
+    const text = "YOU IDIOT.";
+    let i = 0;
+
+    function type() {
+        if (i < text.length) {
+            header.textContent += text.charAt(i);
+
+            sound.currentTime = 0;
+            sound.play();
+
+            i++;
+            setTimeout(type, 80);
+        }
+    }
+
+    type();
+}
+
+function changeFavicon(src) {
     let link = document.querySelector("link[rel~='icon']");
     
     if (!link) {
@@ -54,22 +83,35 @@
         document.head.appendChild(link);
     }
 
-    link.href = src;
+    // prevent caching issue
+    link.href = src + "?v=" + Date.now();
 }
-            function startTypewriter(text) {
+
+function startTypewriter(text) {
     const element = document.getElementById("typewriter-text");
+    const sound = document.getElementById("type-sound");
+
     let i = 0;
 
     function type() {
         if (i < text.length) {
-            element.textContent += text.charAt(i);
+            const char = text.charAt(i);
+
+            if (char === "\n") {
+                element.innerHTML += "<br>";
+            } else {
+                element.innerHTML += char;
+                sound.currentTime = 0;
+                sound.play();
+            }
+
             i++;
-            setTimeout(type, 40); // speed (lower = faster)
+            setTimeout(type, 40);
         }
     }
 
     type();
 }
-        </script>
+</script>
     </body>
 </html>
