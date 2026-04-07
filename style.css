@@ -207,12 +207,13 @@ footer {
     text-align: center;
     background-color: #383838;
     width: 100%
+    flex: 1;
 }
 
 .footer-bookmark {
   position: absolute;
-  top: -25px;     /* pushes it ABOVE the footer */
-  left: 20px;     /* moves it to the left */
+  top: -75px;     /* pushes it ABOVE the footer */
+  left: 5px;     /* moves it to the left */
   width: 60px;
 }
 
