@@ -213,6 +213,7 @@ footer {
 
 .footer-bookmark {
   position: absolute;
+  transform: scale(2);
   top: -70px;     /* pushes it ABOVE the footer */
   left: 75%;
   right: 25%;
