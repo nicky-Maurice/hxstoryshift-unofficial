@@ -223,6 +223,24 @@ footer {
   margin-top: 10px;
 }
 
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 12px;
+  background-color: #666;
+  color: white;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.back-icon {
+  width: 20px;
+  height: auto;
+}
+
 .footer-links a,
 .footer-links button {
   margin: 5px;
