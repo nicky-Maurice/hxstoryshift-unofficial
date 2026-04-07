@@ -202,3 +202,23 @@ footer {
     font-size: 0.9rem;
     text-align: center;
 }
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a,
+.footer-links button {
+  margin: 5px;
+  padding: 8px 12px;
+  background-color: #666;
+  color: white;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-links a:hover,
+.footer-links button:hover {
+  background-color: #888;
+}
