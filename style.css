@@ -198,11 +198,22 @@ img {
     }
 }
 
+.footer-wrapper {
+  position: relative;
+}
+
 footer {
     font-size: 0.6rem;
     text-align: center;
     background-color: #383838;
     width: 100%
+}
+
+.footer-bookmark {
+  position: absolute;
+  top: -25px;     /* pushes it ABOVE the footer */
+  left: 20px;     /* moves it to the left */
+  width: 60px;
 }
 
 .footer-links {
