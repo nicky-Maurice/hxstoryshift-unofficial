@@ -203,10 +203,11 @@ img {
 }
 
 footer {
+    top: 10px;
     font-size: 0.6rem;
     text-align: center;
     background-color: #383838;
-    width: 100%
+    width: 100%;
     flex: 1;
 }
 
@@ -214,7 +215,6 @@ footer {
   position: absolute;
   top: -75px;     /* pushes it ABOVE the footer */
   left: 5px;     /* moves it to the left */
-  width: 60px;
 }
 
 .footer-links {
